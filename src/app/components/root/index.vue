@@ -1,7 +1,8 @@
 <template>
     <div>
-        <h2 class="h-2">Vueのテストだよー</h2>
-        <p>{{ message }}</p>
+        <app-header/>
+        <main></main>
+        <footer></footer>
     </div>
 </template>
 
@@ -18,10 +19,5 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-    font-size: 48px;
-}
-.h-2 {
-    font-size: 80px;
-}
+
 </style>

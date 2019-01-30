@@ -2,8 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
+const MODE = 'development';
+// const MODE = 'production';
+const IS_PROD = (MODE === 'production') ? true : false;
+
 module.exports = {
-  mode: 'development',
+  mode: MODE,
   context: __dirname + '/src',
   entry: {
     js: './index.ts'
@@ -17,6 +21,12 @@ module.exports = {
       rules: [
         {
             test: /\.vue$/,
+            // loader: 'vue-loader',
+            // options: {
+            //     loaders: {
+            //         scss: 'vue-style-loader!css-loader!sass-loader'
+            //     }
+            // }
             use: [
                 {
                     loader: 'vue-loader'
@@ -35,10 +45,24 @@ module.exports = {
             ]
         },
         {
-            test: /\.css$/,
+            test: /\.(scss|css)$/,
             use: [
-                'style-loader',
-                'css-loader'
+                'vue-style-loader',
+                'css-loader',
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: (IS_PROD) ? false : true
+                    }
+                },
+                {
+                    loader: 'sass-resources-loader',
+                    options: {
+                        resources: [
+                            path.resolve(__dirname, 'src/styleConfig.scss')
+                        ]
+                    }
+                }
             ]
         },
         {

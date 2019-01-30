@@ -1,17 +1,18 @@
 <template>
     <div>
         <app-header/>
-        <main></main>
+        <app-main/>
         <footer></footer>
+        <app-add-todoItem/>
     </div>
 </template>
 
 <script lang="ts">
 
 export default {
+    name: 'root',
     data: () => {
         return {
-            message: 'メッセージ2です'
         }
     }
 }

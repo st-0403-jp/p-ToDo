@@ -1,8 +1,8 @@
 <template>
     <header>
-        <div class="header-inner">
+        <div class="header-inner container">
             <div class="header-logo">
-                <h1>p-ToDo</h1>
+                <h1>{{ logo }}</h1>
             </div>
             <nav class="header-menu">
                 <div class="header-menu-line"></div>
@@ -12,31 +12,35 @@
 </template>
 
 <script lang="ts">
+import '../../../styleConfig.scss';
 
 export default {
+    name: 'header',
     data: () => {
         return {
-            message: 'メニューです'
+            logo: 'p-ToDo'
         }
     }
 }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+header {
+    background-color: #fff;
+}
 .header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 72px;
-    padding: 0 16px;
-    box-shadow: 0 0 5px 0 #333;
+    box-shadow: $box-shadow-base;
 }
 .header-logo {
     color: #f90;
-}
-.header-logo h1 {
-    font-size: 1rem;
+    h1 {
+        font-size: 1rem;
+    }
 }
 .header-menu-line {
     display: flex;
@@ -44,14 +48,15 @@ export default {
     align-content: space-evenly;
     width: 32px;
     height: 24px;
-    background-color: #333;
+    background-color: $color-base-black;
     overflow: hidden;
 }
-.header-menu-line::before, .header-menu-line::after {
-    content: '';
-    width: 100%;
-    height: 9px;
-    background-color: #fff;
-    /* margin-top: 2px; */
+.header-menu-line {
+    &::before, &::after {
+        content: '';
+        width: 100%;
+        height: 9px;
+        background-color: #fff;
+    }
 }
 </style>

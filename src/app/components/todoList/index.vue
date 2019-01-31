@@ -8,9 +8,9 @@
                         <span class="todo-list-date">{{ todo.date }}</span>
                     </div>
                     <div>
-                        <span><v-icon name="check-circle" scale="1"></v-icon></span>
-                        <span><v-icon name="angle-double-down" scale="1"></v-icon></span>
+                        <span><v-icon name="check" scale="1"></v-icon></span>
                         <span class="todo-list-title">{{ todo.title }}</span>
+                        <span><v-icon name="angle-double-down" scale="1"></v-icon></span>
                     </div>
                 </a>
                 <a href="" v-else>
